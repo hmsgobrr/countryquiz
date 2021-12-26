@@ -1,0 +1,22 @@
+.flex-center {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.space-even {
+    justify-content: space-evenly !important;
+}
+
+.start {
+    background: none;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 1s;
+}
+.start:hover {
+    color: #08c0d9;
+}
