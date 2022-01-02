@@ -5,7 +5,9 @@ function Quiz({ backToMenu }) {
     const [countryDatas, setCountryDatas] = useState([]);
     const [isLoadingDatas, setIsLoadingDatas] = useState(true);
     const [questions, setQuestions] = useState([]);
-    const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0);
+    // const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0);
+    const currentQuestionIdx = 0;
+    const [steit, setSteit] = useState("ee");
 
     function getAnswers(rightAnswer, answerIsFlag) {
         let answers = new Array(4);
@@ -31,7 +33,7 @@ function Quiz({ backToMenu }) {
     }
 
     useEffect(() => {
-        async function fetchCountryDatas() {
+        const fetchCountryDatas = async () => {
             try {
                 let res = await fetch("https://restcountries.com/v3.1/all?fields=name,flag");
                 setCountryDatas(await res.json());
@@ -40,14 +42,13 @@ function Quiz({ backToMenu }) {
                     country: countryDatas[Math.floor(Math.random() * countryDatas.length)]
                 }));
                 setIsLoadingDatas(false);
-                console.log(questions[currentQuestionIdx]);
             } catch (err) {
                 alert("Sorry there is a problem loading data, try again later...\nERROR:\n" + err)
                 backToMenu();
             }
         }
         fetchCountryDatas();
-    }, [backToMenu, countryDatas]);
+    }, []);
 
     return (isLoadingDatas ?
         <div className="flex-center">
