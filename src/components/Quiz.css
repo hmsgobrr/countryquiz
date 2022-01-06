@@ -2,13 +2,17 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    font-size: 50px;
 }
 .answers button {
     background: #fff;
     margin: 2px;
     width: 250px;
     height: 250px;
+    font-size: 30px;
+}
+
+.fs100 {
+    font-size: 100px !important;
 }
 
 .spinner {
